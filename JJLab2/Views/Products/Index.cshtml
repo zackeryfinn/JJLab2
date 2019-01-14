@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Add a Product</h2>
+
+@using JJLab2.Models
+@model Products
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm("ListProducts", "Products", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.ProdID)
+                @Html.TextBoxFor(x => x.ProdID, new { @class = "form-control", placeholder = "Enter product ID" })
+                @Html.ValidationMessageFor(x => x.ProdID, "Please enter a product ID.", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ProdName)
+                @Html.TextBoxFor(x => x.ProdName, new { @class = "form-control", placeholder = "Enter product name" })
+                @Html.ValidationMessageFor(x => x.ProdName, "Please enter a product name.", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ProdDescription)
+                @Html.TextBoxFor(x => x.ProdDescription, new { @class = "form-control", placeholder = "Enter product description" })
+                @Html.ValidationMessageFor(x => x.ProdDescription, "Please enter a production description.", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ProdPrice)
+                @Html.TextBoxFor(x => x.ProdPrice, new { @class = "form-control", placeholder = "Enter product price" })
+                @Html.ValidationMessageFor(x => x.ProdPrice, "Please enter a product price.", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ProdQuantity)
+                @Html.TextBoxFor(x => x.ProdQuantity, new { @class = "form-control", placeholder = "Enter product quantity" })
+                @Html.ValidationMessageFor(x => x.ProdQuantity, "Please enter a product quantity.", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn-success">Submit</button>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
